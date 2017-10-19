@@ -28,7 +28,9 @@
         <li>github</li>
         <li>email</li>
       </ul>
-      <p class="sign_in">Admin Login</p>
+      <% if !user_signed_in? %>
+        <p class="sign_in"><%= link_to "Admin Login", new_user_session_path %></p>
+      <% end %>
     </div>
     <div id="main_content">
       <div id="header">
@@ -39,11 +41,14 @@
         <% else %>
           <p><%= link_to "Back to All Posts", root_path %></p>
         <% end %>
-
+        <% if user_signed_in? %>
         <div class="buttons">
           <button class="button"><%= link_to "New Post", new_post_path %></button>
-          <button class="button">Logout</button>
+          <button class="button">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </button>
         </div>
+        <% end %>
       </div>
     <% flash.each do |name,msg| %>
       <%= content_tag(:div, msg, class: "alert") %>
