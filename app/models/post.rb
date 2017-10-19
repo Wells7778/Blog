@@ -1,3 +1,4 @@
 class Post < ApplicationRecord
-  validates_presence_of :title, :body
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :body, presence: true
 end
