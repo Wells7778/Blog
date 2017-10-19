@@ -3,16 +3,17 @@
   <head>
     <title>Blog</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= favicon_link_tag 'favicon.ico',rel: "bookmark" %>
   </head>
   <body>
     <div id="sidebar">
       <div id="logo">
         <%= link_to root_path do %>
-          <%= image_tag "logo.png" %>
+          <%= image_tag "logo.jpg" %>
         <% end %>
       </div>
 
@@ -23,10 +24,10 @@
       </ul>
       <ul>
         <li class="category">Social</li>
-        <li>facebook</li>
-        <li>twiter</li>
-        <li>github</li>
-        <li>email</li>
+        <li><a href="https://www.facebook.com/chawkeye621" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/wellszen" target="_blank">Twitter</a></li>
+        <li><a href="https://github.com/Wells7778" target="_blank">Github</a></li>
+        <li><a href="mailto:chawkeye@gmail.com" target="_blank"></a>Email</li>
       </ul>
       <% if !user_signed_in? %>
         <p class="sign_in"><%= link_to "Admin Login", new_user_session_path %></p>
